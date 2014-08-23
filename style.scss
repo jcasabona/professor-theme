@@ -1,0 +1,464 @@
+/*!
+Theme Name: The Professor Theme
+Theme URI: http://casabona.org/projects/the-professor
+Description: A Theme for teaching. Works well in conjunction with The Professor Plugins Set
+Version: 3.0
+Author: Joe Casabona
+Author URI: http://www.casabona.org
+*/
+
+@import 'normalize';
+@import '_mixins';
+
+@import url("http://fonts.googleapis.com/css?family=Fenix|Open+Sans+Condensed:300,700");
+
+
+//variables
+$font-size-reset: 62.5%;
+$font-sans: "Fenix", Georgia, "Times New Roman", serif;
+$font-serif-alt: Cambria, Georgia, Times, "Times New Roman", serif;
+$font-serif: "Open Sans Condensed", Futura, Arial, Helvetica, sans-serif;
+$font-size-reg: 1.25em;
+$h1-size: 3em;
+
+$color-dark: #093844;
+$color-light: lighten(#FFFBED, 2%);
+$color-accent: darken(#E56E67, 7%);
+$color-alt-dark: #2C3D39;
+$color-alt-light: #80A894;
+
+$course-one: #FF7400;
+$course-two: #00CC00;
+$course-three: #1240AB;
+$course-four: #A60000;
+
+$bp-small: 35.88em;
+$bp-medium: 48em;
+$bp-large: 54em;
+$bp-xl: 72em;
+$padding: 0.5em;
+$margin: 0;
+
+
+
+//Stuff that can be extended
+.card{
+	border: 1px solid #999999;
+	border-top: 8px solid #999999;
+	background: #FFFFFF;
+	margin: $padding*2 auto;
+	padding: $padding * 1.5;
+	color: $color-dark;
+
+		& h3{
+			font-size: $font-size-reg+0.25;
+			border-bottom: 1px solid $color-accent;
+			font-weight: bold;
+			}
+
+
+
+	}
+
+%floaty-stuff{
+	margin: ($padding)-0.2;
+	padding: $padding;
+	}
+
+ %title-style{
+ 	font-family: $font-serif;
+  	color: $color-accent;
+  	padding: $padding;
+  	margin: 0;
+ 	} 
+
+.right{
+	@extend %floaty-stuff;
+	float: right;
+	}
+
+.left{
+	@extend %floaty-stuff;
+	float: left;
+	}
+
+.contain{
+	@media screen and (min-width: $bp-large){
+		max-width: 90%;
+		margin: 0 auto;
+		}
+	}
+
+.half{
+	@extend .left;
+	@media screen and (min-width: $bp-large){
+		width: 47%;
+	}
+	}
+
+.third{ 
+	@extend .left;
+	@media screen and (min-width: $bp-large){
+		width: 30%;
+	}
+	}
+
+.two-third{ 
+	@extend .left;
+	@media screen and (min-width: $bp-large){
+		width: 62%;
+	}
+	}
+
+.small{
+	font-size: $font-size-reg - 0.35;
+	}
+
+.date{
+	font-size: $font-size-reg - 0.5;
+	color: #999999;
+	font-style: italic;
+	padding-left: $padding*2;
+	display: inline-block;
+	text-align: right;
+	}
+
+.cil-102{
+	@include course($course-one);
+	}
+
+.cmps-202{
+	@include course($course-two);
+	}
+
+.ec-251, .ec-461{
+	@include course($course-three);
+	}
+
+.prof_assignments{
+	@include course($color-accent);
+	}
+
+/** The Crux of the Matter **/
+
+body{
+	background: $color-alt-dark;
+	font-family: $font-sans;
+	font-size: $font-size-reset;
+	text-align: center;
+	color: $color-light;
+	}
+	
+a{
+	color: $color-accent;
+	text-decoration: none;
+	
+	&:hover{
+		color: lighen($color-accent, 30%);
+		}
+
+	}
+	
+article{
+		font-size: $font-size-reg+0.2;
+
+		& p, & li{
+			line-height: 1.65em;
+			}
+
+	@media screen and (min-width: $bp-large){
+		width: 65%;
+		margin: 0 auto;
+		}
+	}
+
+section{
+		font-size: $font-size-reg+0.2;
+
+	@media screen and (min-width: $bp-large){
+		width: 65%;
+		margin: 0 auto;
+		}
+	}
+
+span[data-info~="label"]{
+	background: $color-alt-light;
+	padding: 0.3em;
+	color: #FFFFFF;
+
+	& a{
+		color: $color-alt-dark;
+		text-decoration: underline;
+		}
+}
+	
+aside{
+	font-size: $font-size-reg;
+	background: $color-light;
+	@extend %floaty-stuff;	
+
+	@media screen and (min-width: $bp-large){	
+		margin-left: 68%;
+		width: 30%;
+	}
+
+	& .widget{
+		@extend .card;
+		margin-top: 10px;
+		padding: $padding;
+
+		& h3{
+			color: $color-alt-dark;
+			}
+
+		}
+	
+	}
+
+.prof-contact-widget img{
+	float: left;
+	max-width: 23%;
+	border-radius: 50%;
+	margin: 1em;
+	}
+
+b, strong{
+	font-weight: bold;
+	}
+
+blockquote{
+	padding: $padding*2;
+	font-size: $font-size-reg+0.2;
+	font-style: italic;
+	color: $color-alt-light;
+	font-family: $font-serif-alt;
+	}
+
+
+form{
+	max-width: 90%;
+	text-align: left;
+	font-size: $font-size-reg;
+	padding: 0;
+
+	& div label{
+		display: inline-block;
+		padding: $padding;
+	}
+
+	& input, & textarea{
+		padding: $padding/2;
+		font-size: $font-size-reg+0.15;
+		color: $color-alt-dark;
+		}
+
+	& textarea{
+		height: 200px;
+		}
+
+	}
+	
+	
+h1,h2,h3{
+	@extend %title-style;
+	}
+
+ @each $h in h1, h2, h3, h4, h5, h6{
+    #{$h} { 
+      font-size: $h1-size;
+      } 
+
+      $h1-size: $h1-size - 0.5 !global;
+  }
+	
+img,object,wmbed,video{
+	max-width: 100%;
+	height: auto;
+	}
+
+p, li{
+	font-size: $font-size-reg;
+	padding: $padding;
+	}
+
+ul.posts li{
+	border-bottom: 1px solid $color-alt-light;
+	}
+
+ol li{
+	list-style-type: default;
+	}
+	
+.center{
+	text-align: center;
+	}
+
+#wrapper{
+	margin: 0 auto;
+	text-align: left;
+	font-size: 1.4em;
+	color: $color-dark;
+	background: #FFFFFF;
+	}
+	
+header{
+	article &{
+		background: none;
+		color: $color-dark;
+		}
+
+	& h1{
+		padding: $padding*1.5 $padding;
+		margin: 0;
+		color: $color-alt-light;
+		font-size: 4em;
+		}
+
+
+	& nav{  
+		font-size: $font-size-reg+0.25;
+		padding-left: $padding*1.5;
+		background: $color-alt-dark;
+		color: #FFFFFF;
+
+		& li{
+		display: inline-block;
+		padding: $padding;
+		} 
+	}
+}
+
+header h1 a{
+	color: $color-alt-light;
+	}
+
+#content{
+	padding: $padding*2 $padding;
+}
+	
+
+footer{
+	background: $color-alt-dark;
+	color: $color-alt-light;
+	padding: $padding;
+	font-size: $font-size-reg+0.25;
+	}
+
+.copy{
+	@extend .right;
+	@extend .small;
+	}
+
+a.button {
+	@include box-shadow;
+	@include border-radius;
+	@include gradient;
+	display: block;
+	color: #FFFFFF;
+	padding: $padding $padding*2;
+	width: 80%;
+	margin: 15px auto;
+	font-size: 2em;
+	text-align: center;
+
+	&:hover {
+		@include gradient(#a62424, #f07f7f);
+		}
+}
+	
+/**SOME DEFAULT BLOG STYLES**/
+.navigation{
+padding: $padding;
+font-size: $font-size-reg;
+}
+.postmetadata{
+border: {
+	style: solid;
+	color: $color-accent;
+	width: 1px 0;
+	}
+padding: $padding;
+font-size: ($font-size-reg)-0.35;
+}
+
+
+section.comments{
+	max-width: 90%;
+	margin-top: $padding;
+		& input, & textarea{
+			max-width: 99%;
+		}
+	}
+
+ol.commentlist{
+margin: $padding;
+padding: 0;
+
+	& li{
+		@extend .card;
+		margin: $padding 0;
+		padding: 0;
+		
+	}
+}
+img.centered {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	}
+
+.alignright {
+	float: right;
+	}
+
+.alignleft {
+	float: left;
+	}
+/* End Images */
+
+/* Captions */
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}
+
+.wp-caption {
+	border: 1px solid $color-alt-dark;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding: ($padding)-0.2;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	}
+
+.wp-caption p.wp-caption-text {
+	font-size: ($font-size-reg)-0.4;
+	line-height: 1.7em;
+	padding: ($padding)-0.3;
+	margin: 0;
+}
+/* End captions */
+
+
+
+/* self-clear floats */
+
+.group:after {
+	content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+	}
+
+.clear{
+clear: both;
+}
+
