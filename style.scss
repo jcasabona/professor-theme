@@ -162,6 +162,16 @@ a{
 article{
 		font-size: $font-size-reg+0.2;
 
+		& ul{
+			list-style-type: disc;
+			margin-left: $padding*5;
+			
+			& li{
+				padding: $padding/4 0;
+				}
+
+			}
+
 		& p, & li{
 			line-height: 1.65em;
 			}
@@ -171,6 +181,7 @@ article{
 		margin: 0 auto;
 		}
 	}
+
 
 section{
 		font-size: $font-size-reg+0.2;
@@ -279,6 +290,11 @@ img,object,wmbed,video{
 p, li{
 	font-size: $font-size-reg;
 	padding: $padding;
+
+	& li{
+		font-size: 1em;
+		}
+
 	}
 
 ul.posts li{

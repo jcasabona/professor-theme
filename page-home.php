@@ -22,7 +22,6 @@ get_header(); ?>
 		<?php while($query->have_posts()) : 
 
 			$query->the_post();
-			$postMeda= get_me
 		?>
 				<article class="group card <?php jlc_print_slugs(get_the_category(), $post->post_type); ?>">
 					<header class="group">
