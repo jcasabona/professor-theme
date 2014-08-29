@@ -244,7 +244,7 @@ ul.posts li {
   border-bottom: 1px solid #80a894; }
 
 ol li {
-  list-style-type: decimal; }
+  list-style-type: default; }
 
 .center {
   text-align: center; }
@@ -283,10 +283,6 @@ header h1 a {
   .assns a {
     color: #FFFFFF;
     text-decoration: underline; }
-  .assns ol {
-    padding-left: 1em; }
-    .assns ol li {
-      padding-left: 0; }
 
 #content {
   padding: 1em 0.5em; }

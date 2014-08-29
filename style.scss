@@ -303,7 +303,7 @@ ul.posts li{
 	}
 
 ol li{
-	list-style-type: decimal;
+	list-style-type: default;
 	}
 	
 .center{
@@ -357,12 +357,6 @@ header h1 a{
 	& a{
 		color: #FFFFFF;
 		text-decoration: underline;
-		}
-
-	& ol{
-		padding-left: $padding*2;
-
-		& li{ padding-left: 0; }
 		}
 	}
 
