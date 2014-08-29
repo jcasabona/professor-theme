@@ -8,16 +8,17 @@
 			<?php
 				$assns= prof_get_course_assignments($post->ID);
 				if($assns->have_posts()) : 
-					echo '<ul>';
+					echo '<h4>Upcoming Assignments</h4>';
+					echo '<ol>';
 					while($assns->have_posts()) :
 						$assns->the_post();
-						$assn_info = get_post_custom($assns->ID); 
+						$assn_info = get_post_custom(get_the_id()); 
 						$due_date= $assn_info['duedate'][0];
 				?>
-						<li><a href="<?php $assns->the_permalink(); ?>"><?php $assns->the_title(); ?> | Due: <?php echo $due_date; ?></li>
+						<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <br/>Due: <?php echo $due_date; ?></li>
 				<?php
 					endwhile;
-					echo '</ul>';
+					echo '</ol>';
 				endif;
 			?>
 		</div>

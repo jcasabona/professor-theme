@@ -26,6 +26,7 @@ $color-light: lighten(#FFFBED, 2%);
 $color-accent: darken(#E56E67, 7%);
 $color-alt-dark: #2C3D39;
 $color-alt-light: #80A894;
+$color-assns: #880000;
 
 $course-one: #FF7400;
 $course-two: #00CC00;
@@ -302,7 +303,7 @@ ul.posts li{
 	}
 
 ol li{
-	list-style-type: default;
+	list-style-type: decimal;
 	}
 	
 .center{
@@ -346,6 +347,23 @@ header{
 
 header h1 a{
 	color: $color-alt-light;
+	}
+
+.assns{
+	background: $color-assns;
+	color: #FFFFFF;
+	padding: $padding;
+
+	& a{
+		color: #FFFFFF;
+		text-decoration: underline;
+		}
+
+	& ol{
+		padding-left: $padding*2;
+
+		& li{ padding-left: 0; }
+		}
 	}
 
 #content{
