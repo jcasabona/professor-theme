@@ -246,6 +246,18 @@ blockquote{
 	font-family: $font-serif-alt;
 	}
 
+dl{
+	margin: $padding*2 0;
+	}
+
+dt{
+	font-weight: bold;
+	font-size: $font-size-reg+0.12;
+	}
+
+dd{
+	font-size: 1em;
+	}
 
 form{
 	max-width: 90%;

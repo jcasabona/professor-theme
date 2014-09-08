@@ -197,6 +197,16 @@ blockquote {
   color: #80a894;
   font-family: Cambria, Georgia, Times, "Times New Roman", serif; }
 
+dl {
+  margin: 1em 0; }
+
+dt {
+  font-weight: bold;
+  font-size: 1.37em; }
+
+dd {
+  font-size: 1em; }
+
 form {
   max-width: 90%;
   text-align: left;
