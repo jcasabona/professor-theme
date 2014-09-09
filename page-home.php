@@ -22,18 +22,23 @@ get_header(); ?>
 		<?php while($query->have_posts()) : 
 
 			$query->the_post();
+
+			if(prof_is_assn($post->post_type)){
+				$assn_info = get_post_custom($post->ID);
+				$course_info= get_post_custom($assn_info['course'][0]);
+				$course_id= $course_info['courseid'][0];
+			}
 		?>
 				<article class="group card <?php jlc_print_slugs(get_the_category(), $post->post_type); ?>">
 					<header class="group">
-						<span class="right" data-info="<?php print $post->post_type; ?> label"><?php print strtoupper($post->post_type); ?> <?php the_category(", "); ?></span>
+						<span class="right" data-info="<?php print $post->post_type; ?> label"><?php print strtoupper(prof_get_nice_name($post->post_type)) . " - " . $course_id; ?> <?php the_category(", "); ?></span>
 						<h3><a href="<?php the_permalink(); ?>" title="<?php print esc_attr(get_the_title()); ?>"><?php the_title(); ?></a></h3>
 					</header>
 					<p><?php the_excerpt(); ?></p>
 					<p class="right">
 						<?php 
 							if(prof_is_assn($post->post_type)){
-								$assn_info = get_post_custom($post->ID);
-								echo "Due: " . $assn_info['duedate'][0];
+								echo "Due: " . prof_convert_date($assn_info['duedate'][0]);
 							}else{
 								echo "Posted: ";
 								the_date('m/d/Y'); 
