@@ -21,7 +21,10 @@
 					<?php wp_nav_menu( array('menu' => 'Main' )); ?>
 				</nav>
 
-				<?php get_sidebar('header'); ?>
+				<?php 
+					$sidebar_slug= (strpos($post->post_type, 'prof_') !== false) ? '-'.$post->post_type : '';
+					get_template_part('sidebars/sidebar', 'header'.$sidebar_slug);
+				?>
 		</header>
 		
 		<div id="content" class="group contain">

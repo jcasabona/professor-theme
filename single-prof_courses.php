@@ -46,7 +46,7 @@ get_header();
 
 						$assns->the_post();
 						$assn_info = get_post_custom(get_the_id()); 
-						$due_date= $assn_info['duedate'][0];
+						$due_date= prof_convert_date($assn_info['duedate'][0]);
 					?>
 						<dt><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> - Due: <?php print $due_date; ?></dt>
 						<dd><?php the_excerpt(); ?></dd>
